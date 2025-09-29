@@ -1,0 +1,30 @@
+﻿@model Wsi.CyFun.Elephants.Web.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Nieuwe gebruiker";
+}
+
+<h2>NIEUWE GEBRUIKER</h2>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label fw-bold">GEBRUIKERSNAAM</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label fw-bold">ROL</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="UserRole" id="roleUser" value="User" checked>
+            <label class="form-check-label" for="roleUser">Gebruiker</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="UserRole" id="roleAssessor" value="Assessor">
+            <label class="form-check-label" for="roleAssessor">Assessor</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="UserRole" id="roleAdmin" value="Admin">
+            <label class="form-check-label" for="roleAdmin">Admin</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">OPSLAAN</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">ANNULEREN</a>
+</form>

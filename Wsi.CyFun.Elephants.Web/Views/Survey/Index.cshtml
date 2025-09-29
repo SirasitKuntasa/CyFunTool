@@ -1,0 +1,50 @@
+﻿@model FunctionIndexViewModel
+
+@{
+    ViewData["Title"] = "Functions";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1>Functies</h1>
+        </div>
+    </div>
+</div>
+
+    @{
+    // Mapping van functienaam naar kleuren
+    var functionColors = new Dictionary<string, (string bg, string border)>
+    {
+        { "Identity", ("rgba(30, 60, 180, 0.7)",   "rgba(30, 60, 180, 1)") },
+        { "Protect",  ("rgba(128, 0, 128, 0.7)",   "rgba(128, 0, 128, 1)") },
+        { "Detect",   ("rgba(204, 204, 0, 0.8)",   "rgba(204, 204, 0, 1)") },
+        { "Respond",  ("rgba(204, 0, 0, 0.7)",     "rgba(204, 0, 0, 1)") },
+        { "Recover",  ("rgba(0, 128, 0, 0.7)",     "rgba(0, 128, 0, 1)") }
+    };
+}
+<div class="row">
+    @foreach (var function in Model.Functions)
+    {
+        // Haal kleuren op, standaard blauw als niet gevonden
+        var colors = functionColors.ContainsKey(function.Name)
+            ? functionColors[function.Name]
+            : functionColors["Identity"]; // fallback is altijd blauw
+
+        <div class="col-md-4 col-lg-3 mb-3">
+            <div class="card h-100">
+                <div class="card-header text-white"
+                     style="background-color:@colors.Item1; border-color:@colors.Item2;">
+                    <h5 class="card-title">@function.Name</h5>
+                    <span class="badge badge-info">@function.Code</span>
+                </div>
+                <div class="card-body">
+                    <p>@function.Description</p>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-secondary" asp-controller="Survey" asp-action="ShowSurvey" asp-route-id="@function.Id">Selecteer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

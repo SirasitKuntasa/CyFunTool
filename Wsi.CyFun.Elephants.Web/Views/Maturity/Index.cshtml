@@ -1,0 +1,346 @@
+@using Wsi.CyFun.Elephants.Web.ViewModels
+@using System.Linq
+
+@{
+    ViewData["Title"] = "";
+    var model = ((List<FunctionScoreViewModel>)ViewBag.FunctionScores)
+        .Where(f => f.Name == "Identify").ToList();
+
+    double basicThreshold = 2.5;
+    double importantThreshold = 3.0;
+    double essentialThreshold = 3.0;
+
+
+    double currentThreshold = importantThreshold;
+    double currentTotalThreshold = importantThreshold;
+
+    if (User.IsInRole("Important"))
+    {
+        currentThreshold = importantThreshold;
+        currentTotalThreshold = importantThreshold;
+    }
+    else if (User.IsInRole("Essential"))
+    {
+        currentThreshold = essentialThreshold;
+        currentTotalThreshold = essentialThreshold;
+    }
+
+    double totalAverageScore = model.SelectMany(f => f.Categories)
+        .SelectMany(c => c.SubCategories)
+        .Average(s => s.AverageScore);
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .bg-soft-danger {
+        background-color: #f8d7da !important;
+    }
+
+    .total-below-threshold {
+        color: red;
+    }
+
+    .excel-download-btn {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+
+        .excel-download-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+            color: white;
+        }
+
+    .pdf-download-btn {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+        .pdf-download-btn:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+            color: white;
+        }
+
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .total-score-info {
+        flex-grow: 1;
+    }
+
+    .download-section {
+        margin-left: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="header-section">
+        <div>
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="download-section">
+            <a href="@Url.Action("DownloadPdf", "Maturity")" class="btn pdf-download-btn">
+                <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+            <a href="@Url.Action("DownloadExcel", "Maturity")" class="btn excel-download-btn">
+                <i class="fas fa-file-excel"></i> Download Excel
+            </a>
+        </div>
+    </div>
+
+    <div class="total-score-info">
+        TOTALE GEMIDDELDE SCORE:
+        <span class="@(totalAverageScore < currentTotalThreshold ? "total-below-threshold" : "")">
+            @totalAverageScore.ToString("F2")
+        </span>
+        @if (totalAverageScore < currentTotalThreshold)
+        {
+            <text> (Voldoet niet aan de richtlijn van @currentTotalThreshold)</text>
+        }
+        else
+        {
+            <text> (Voldoet aan de richtlijn van @currentTotalThreshold)</text>
+        }
+    </div>
+
+    <table class="table table-bordered">
+        <thead style="background-color: #003366; color: white">
+            <tr>
+                <th>CATEGORIE</th>
+                <th>SUBCATEGORY CODE</th>
+                <th>DOC SCORE</th>
+                <th>IMPL SCORE</th>
+                <th>GEM. SCORE</th>
+                <th>BELANGRIJK</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var function in model)
+            {
+                @foreach (var category in function.Categories)
+                {
+                    int subCategoryCount = category.SubCategories.Count;
+                    @for (int i = 0; i < subCategoryCount; i++)
+                    {
+                        var subCategory = category.SubCategories[i];
+                        <tr>
+                            @if (i == 0)
+                            {
+                                <td rowspan="@subCategoryCount">@category.Name</td>
+                                <td>@subCategory.Code</td>
+                            }
+                            else
+                            {
+                                <td>@subCategory.Code</td>
+                            }
+                            <td class="@(subCategory.DocumentationScore < currentThreshold ? "bg-soft-danger" : "")">@subCategory.DocumentationScore</td>
+                            <td class="@(subCategory.ImplementationScore < currentThreshold ? "bg-soft-danger" : "")">@subCategory.ImplementationScore</td>
+                            <td class="@(subCategory.AverageScore < currentThreshold ? "bg-danger" : "")">@subCategory.AverageScore</td>
+                            <td>
+                                @if (subCategory.IsKeyMeasure)
+                                {
+                                    <i class="fas fa-key"></i>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@model AllScoresViewModel
+
+<div class="d-flex justify-content-center">
+
+    <button id="Functions" type="button" class="btn btn-primary" style="background-color: rgba(70, 130, 180, 0.8); border-color: rgba(64, 64, 64, 0.6); margin-left: 5px; margin-right: 5px " onclick="FunctionsChart()">FUNCTIE DIAGRAM</button>
+    <button id="Categories" type="button" class="btn btn-primary" style="background-color: rgba(70, 130, 180, 0.8); border-color: rgba(64, 64, 64, 0.6); margin-left: 5px; margin-right: 5px " onclick="CategoriesChart()">CATEGORIE DIAGRAM</button>
+    <button id="Close" type="button" class="btn btn-primary" style="background-color: rgba(70, 130, 180, 0.8); border-color: rgba(64, 64, 64, 0.6); margin-left: 5px; margin-right: 5px " onclick="RemoveChart()" disabled>DIAGRAM SLUITEN</button>
+
+</div>
+
+<div class="row mt-5">
+    <div class="col-12" style="text-align: center">
+        <h3></h3>
+        <div id="chart" class="d-flex justify-content-center chart-container" style="position: relative; height: 0px; width: 100%; justify-content:center;">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> @*nodig want hij kent de chart library anders niet*@
+
+<script>
+    let radarChart;
+
+    function RemoveChart() {
+        if (radarChart) radarChart.destroy();
+        document.getElementById('chart').style.height = '0px';
+        document.getElementById('Close').disabled = true;
+    }
+
+    function FunctionsChart() {
+        document.getElementById('chart').style.height = '700px';
+
+    const data = {
+        labels: [@Html.Raw(string.Join(",", Model.FunctionScores.Select(f => $"'{f.FunctionName}'")))],
+        datasets: [
+            {
+                label: 'DOCUMENTATIE SCORE',
+                data: [@Html.Raw(string.Join(",", Model.FunctionScores.Select(f => $"{f.AvgDocumentationMaturityScore}")))],
+                fill: false,
+                backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                borderColor: '#9E9E9E',
+                pointBackgroundColor: '#9E9E9E',
+                pointBorderColor: '#fff',
+            },
+            {
+                label: 'IMPLEMENTATIE SCORE',
+                data: [@Html.Raw(string.Join(",", Model.FunctionScores.Select(f => $"{f.AvgImplementationMaturityScore}")))],
+                fill: false,
+                borderColor: '#1976D2',
+                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                pointBackgroundColor: '#1976D2',
+                pointBorderColor: '#fff',
+            },
+            {
+                label: 'DOEL SCORE',
+                data: [@Html.Raw(string.Join(",", Enumerable.Repeat("3", Model.FunctionScores.Count)))],
+                fill: false,
+                borderColor: '#2E7D32',
+                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                pointBackgroundColor: '#2E7D32',
+                pointBorderColor: '#fff',
+            }
+        ]
+    };
+
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                r: {
+                    min: 0,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        precision: 0,
+                        callback: function (value) {
+                            return value;
+                        }
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        }
+    };
+
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        if (radarChart) radarChart.destroy();
+        radarChart = new Chart(ctx, config);
+        document.getElementById('Close').disabled = false;
+
+}
+
+
+    function CategoriesChart() {
+        document.getElementById('chart').style.height = '900px';
+
+    const data = {
+        labels: [@Html.Raw(string.Join(",", Model.CategoryScores.Select(c => $"'{c.CategoryName}'")))],
+        datasets: [
+            {
+                label: 'DOCUMENTATIE SCORE',
+                data: [@Html.Raw(string.Join(",", Model.CategoryScores.Select(c => $"{c.AvgDocumentationMaturityScore}")))],
+                fill: false,
+                backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                borderColor: '#9E9E9E',
+                pointBackgroundColor: '#9E9E9E',
+                pointBorderColor: '#fff',
+            },
+            {
+                label: 'IMPLEMENTATIE SCORE',
+                data: [@Html.Raw(string.Join(",", Model.CategoryScores.Select(c => $"{c.AvgImplementationMaturityScore}")))],
+                fill: false,
+                borderColor: '#1976D2',
+                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                pointBackgroundColor: '#1976D2',
+                pointBorderColor: '#fff',
+            },
+            {
+                label: 'DOEL SCORE',
+                data: [@Html.Raw(string.Join(",", Enumerable.Repeat("3", Model.CategoryScores.Count)))],
+                fill: false,
+                borderColor: '#2E7D32',
+                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                pointBackgroundColor: '#2E7D32',
+                pointBorderColor: '#fff',
+            }
+        ]
+    };
+
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                r: {
+                    min: 0,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        precision: 0,
+                        callback: function (value) {
+                            return value;
+                        }
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 12
+                        }
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        }
+    };
+
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        if (radarChart) radarChart.destroy();
+        radarChart = new Chart(ctx, config);
+        document.getElementById('Close').disabled = false;
+
+}
+
+
+</script>

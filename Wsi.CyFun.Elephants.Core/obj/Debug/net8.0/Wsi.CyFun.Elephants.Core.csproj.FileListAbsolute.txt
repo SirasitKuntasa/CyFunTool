@@ -1,0 +1,13 @@
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/bin/Debug/net8.0/Wsi.CyFun.Elephants.Core.deps.json
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/bin/Debug/net8.0/Wsi.CyFun.Elephants.Core.dll
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/bin/Debug/net8.0/Wsi.CyFun.Elephants.Core.pdb
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.AssemblyInfoInputs.cache
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.AssemblyInfo.cs
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.csproj.CoreCompileInputs.cache
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.sourcelink.json
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.dll
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/refint/Wsi.CyFun.Elephants.Core.dll
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.pdb
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/ref/Wsi.CyFun.Elephants.Core.dll
+/Users/sira/School/Semester 2/WSI/st-2-d-wsi-cyfun-2425-2-t3-elephant/Wsi.CyFun.Elephants.Core/obj/Debug/net8.0/Wsi.CyFun.Elephants.Core.csproj.AssemblyReference.cache

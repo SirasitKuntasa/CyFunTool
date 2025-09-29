@@ -1,0 +1,45 @@
+@model CategoryAddCategoryViewModel
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<form method="post" asp-controller="Admin" asp-action="UpdateCategory">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3 fw-bold">
+        <label class="form-label">NAAM</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">CODE</label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">BESCHRIJVING</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">VOLGORDE</label>
+        <input asp-for="Order" class="form-control" type="number" />
+        <span asp-validation-for="Order" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="SelectedFunctionId" class="form-label fw-bold">FUNCTIE</label>
+        <select asp-for="SelectedFunctionId" asp-items="Model.Functions">
+            <option value="">-- Selecteer-een-functie --</option>
+        </select>
+        <span asp-validation-for="SelectedFunctionId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" asp-action="UpdateCategory" class="btn btn-success">WIJZIGINGEN OPSLAAN</button>
+    <a asp-action="Categories" class="btn btn-secondary">ANNULEREN</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

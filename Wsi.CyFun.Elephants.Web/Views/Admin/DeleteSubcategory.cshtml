@@ -1,0 +1,14 @@
+﻿@model SubCategoryViewModel
+@{
+    ViewData["Title"] = "Subcategorie verwijderen";
+}
+
+<h2>SUBCATEGORIE VERWIJDEREN</h2>
+<div class="alert alert-warning">
+    Weet je zeker dat je <strong>@Model.Name</strong> wilt verwijderen?
+</div>
+<form asp-action="DeleteSubcategoryConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">VERWIJDEREN</button>
+    <a asp-action="Subcategories" class="btn btn-secondary">ANNULEREN</a>
+</form>

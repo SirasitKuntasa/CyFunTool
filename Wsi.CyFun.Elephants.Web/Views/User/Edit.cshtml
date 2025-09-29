@@ -1,0 +1,24 @@
+﻿@model Wsi.CyFun.Elephants.Web.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Gebruiker bewerken";
+}
+
+<h2>GEBRUIKER BEWERKEN</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="form-check">
+        <input asp-for="IsAssessor" class="form-check-input" />
+        <label asp-for="IsAssessor" class="form-check-label"></label>
+    </div>
+    <div class="form-check">
+        <input asp-for="IsAdmin" class="form-check-input" />
+        <label asp-for="IsAdmin" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">WIJZIGINGEN OPSLAAN</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">ANNULEREN</a>
+</form>

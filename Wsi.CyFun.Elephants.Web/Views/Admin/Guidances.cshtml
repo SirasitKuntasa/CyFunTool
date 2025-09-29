@@ -1,0 +1,36 @@
+﻿@model RequirementsViewModel
+@{
+    ViewData["Title"] = "Richtlijnen";
+}
+
+<h2>Richtlijnen</h2>
+<a asp-controller="Admin" asp-action="AddGuidance" class="btn btn-primary mb-2">RICHTLIJN TOEVOEGEN</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>BESCHRIJVING</th>
+            <th>ORDER</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var guidance in Model.Guidances)
+        {
+            <tr>
+                <td>@guidance.Description</td>
+                <td>@guidance.Order</td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       asp-controller="Admin"
+                       asp-action="UpdateGuidance"
+                       asp-route-id="@guidance.Id">
+                        BEWERKEN
+                    </a>
+                    <a asp-action="DeleteGuidance" asp-route-id="@guidance.Id" class="btn btn-sm btn-danger">VERWIJDEREN</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

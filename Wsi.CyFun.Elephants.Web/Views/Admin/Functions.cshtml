@@ -1,0 +1,34 @@
+﻿@model FunctionIndexViewModel
+@{
+    ViewData["Title"] = "Functies";
+}
+
+<h2>FUNCTIES</h2>
+<a class="btn btn-primary mb-3" asp-controller="Admin" asp-action="AddFunction">FUNCTIE TOEVOEGEN</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>NAAM</th>
+            <th>CODE</th>
+            <th>BESCHRIJVING</th>
+            <th>VOLGORDE</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var function in Model.Functions)
+        {
+            <tr>
+                <td>@function.Name</td>
+                <td>@function.Code</td>
+                <td>@function.Description</td>
+                <td>@function.Order</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-action="UpdateFunction" asp-route-id="@function.Id">BEWERKEN</a>
+                    <a asp-action="Delete" asp-route-id="@function.Id" class="btn btn-sm btn-danger">VERWIJDEREN</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

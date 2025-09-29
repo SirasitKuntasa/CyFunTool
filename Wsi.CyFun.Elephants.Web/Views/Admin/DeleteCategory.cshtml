@@ -1,0 +1,14 @@
+﻿@model CategoryViewModel
+@{
+    ViewData["Title"] = "Categorie verwijderen";
+}
+
+<h2>CATEGORIE VERWIJDEREN</h2>
+<div class="alert alert-warning">
+    Weet je zeker dat je <strong>@Model.Name</strong> wilt verwijderen?
+</div>
+<form asp-action="DeleteCategoryConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">VERWIJDEREN</button>
+    <a asp-action="Categories" class="btn btn-secondary">ANNULEREN</a>
+</form>

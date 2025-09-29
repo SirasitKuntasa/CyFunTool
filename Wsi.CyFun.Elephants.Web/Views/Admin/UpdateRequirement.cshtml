@@ -1,0 +1,40 @@
+﻿@model RequirementAddRequirementViewModel
+
+@{
+    ViewData["Title"] = "Update requirement";
+}
+
+<form method="post" asp-controller="Admin" asp-action="UpdateRequirement">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3 fw-bold">
+        <label class="form-label">CODE</label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">BESCHRIJVING</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">VOLGORDE</label>
+        <input asp-for="Order" class="form-control" type="number" />
+        <span asp-validation-for="Order" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="SelectedSubcategoryId" class="form-label fw-bold">SUBCATEGORIE</label>
+        <select asp-for="SelectedSubcategoryId" asp-items="Model.Subcategories">
+            <option value="">-- Selecteer-een-subcategorie --</option>
+        </select>
+        <span asp-validation-for="SelectedSubcategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" asp-action="UpdateRequirement" class="btn btn-success">WIJZIGINGEN OPSLAAN</button>
+    <a asp-action="Requirements" class="btn btn-secondary">ANNULEREN</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

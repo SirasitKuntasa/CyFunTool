@@ -1,0 +1,36 @@
+﻿@model SubCategoryViewModel
+@{
+    ViewData["Title"] = "Vereisten";
+}
+
+<h2>VEREISTEN</h2>
+<a asp-controller="Admin" asp-action="AddRequirement" class="btn btn-primary mb-2">VEREISTE TOEVOEGEN</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>BESCHRIJVING</th>
+            <th>CODE</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var requirement in Model.Requirements)
+        {
+            <tr>
+                <td>@requirement.Description</td>
+                <td>@requirement.Code</td>
+                <td>
+                    <a class="btn btn-primary small btn-sm"
+                       asp-controller="Admin"
+                       asp-action="UpdateRequirement"
+                       asp-route-id="@requirement.Id">
+                        BEWERKEN
+                    </a>
+                    <a asp-action="DeleteRequirement" asp-route-id="@requirement.Id" class="btn btn-sm btn-danger small">VERWIJDEREN</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

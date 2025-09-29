@@ -1,0 +1,36 @@
+﻿@model CategoryViewModel
+@{
+    ViewData["Title"] = "Subcategorieën";
+}
+
+<h2>SUBCATEGORIEËN</h2>
+<a asp-controller="Admin" asp-action="AddSubcategory" class="btn btn-primary mb-2">SUBCATEGORIE TOEVOEGEN</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th style="width: 50%">BESCHRIJVING</th>    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subcategorie in Model.SubCategories)
+        {
+            <tr>
+                <td>@subcategorie.Code</td>
+                <td>@subcategorie.Description</td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       asp-controller="Admin"
+                       asp-action="UpdateSubcategory"
+                       asp-route-id="@subcategorie.Id">
+                        BEWERKEN
+                    </a>
+                    <a asp-action="DeleteSubcategory" asp-route-id="@subcategorie.Id" class="btn btn-sm btn-danger">VERWIJDEREN</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

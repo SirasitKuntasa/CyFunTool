@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Wsi.CyFun.Elephants.Core.Entities.Municipality>
+@{
+    ViewData["Title"] = "Selecteer Gemeente";
+    var functionId = Context.Request.Query["functionId"];
+}
+<h2>Selecteer uw gemeente</h2>
+<form asp-action="SelectMunicipality" method="post">
+    <input type="hidden" name="functionId" value="@functionId" />
+    <select name="municipalityId" class="form-select" required>
+        <option value="">-- Selecteer Gemeente --</option>
+        @foreach (var m in Model)
+        {
+            <option value="@m.Id">@m.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary mt-3">Verder</button>
+</form>

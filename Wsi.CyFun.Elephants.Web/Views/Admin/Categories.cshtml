@@ -1,0 +1,37 @@
+﻿@model FunctionViewModel
+@{
+    ViewData["Title"] = "Categorie beheer";
+}
+<h2>CATEGORIEËN</h2>
+
+<a asp-controller="Admin" asp-action="AddCategory" class="btn btn-primary mb-2">CATEGORIE TOEVOEGEN</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>NAAM</th>
+            <th>CODE</th>
+            <th>BESCHRIJVING</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>@category.Code</td>
+                <td>@category.Description</td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       asp-controller="Admin"
+                       asp-action="UpdateCategory"
+                       asp-route-id="@category.Id">
+                        BEWERKEN
+                    </a>
+                    <a asp-action="DeleteCategory" asp-route-id="@category.Id" class="btn btn-sm btn-danger">VERWIJDEREN</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

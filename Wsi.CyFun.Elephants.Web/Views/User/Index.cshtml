@@ -1,0 +1,33 @@
+﻿@model UserListViewModel
+@{
+    ViewData["Title"] = "Gebruikerslijst";
+}
+
+<h2>GEBRUIKERS</h2>
+<a asp-action="Create" class="btn btn-primary mb-2">NIEUWE GEBRUIKER</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>GEBRUIKERSNAAM</th>
+            <th>EVALUATOR</th>
+            <th>ADMIN</th>
+            <th>AANGEMAAKT</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@(user.IsAssessor ? "Ja" : "Nee")</td>
+                <td>@(user.IsAdmin ? "Ja" : "Nee")</td>
+                <td>@user.Created.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-sm btn-warning">BEWERKEN</a>
+                    <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-sm btn-danger">VERWIJDEREN</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

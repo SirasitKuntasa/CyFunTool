@@ -1,0 +1,181 @@
+@model FunctionViewModel
+
+@{
+    ViewBag.Title = "Assessment Edit";
+    Layout = "_Layout";
+    int scorePostIndex = 0;
+ 
+}
+
+<div class="container">
+    <h1 class="mb-4">Assessment Edit: @Model.Name</h1>
+
+    @if (Model != null)
+    {
+        <form method="post" asp-controller="Assessment" asp-action="SaveAssessmentForUser" asp-route-assessmentId="@ViewBag.AssessmentId">
+
+            <div class="accordion" id="categoriesAccordion">
+                @foreach (var (category, catIndex) in Model.Categories.OrderBy(c => c.Order).Select((c, i) => (c, i)))
+                {
+                    var catId = $"cat{catIndex}";
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header" id="heading-@catId">
+                            <button class="accordion-button bg-primary text-white" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-@catId" aria-expanded="false" aria-controls="collapse-@catId">
+                                <span class="fw-bold">@category.Name <small class="text-white">@category.Code</small></span>
+                            </button>
+                        </h2>
+                        <div id="collapse-@catId" class="accordion-collapse collapse" aria-labelledby="heading-@catId"
+                             data-bs-parent="#categoriesAccordion">
+                            <div class="accordion-body">
+                                <p>@category.Description</p>
+
+                                @if (!category.SubCategories.Any())
+                                {
+                                    <div class="alert alert-warning">Geen subcategorie voor deze categorie.</div>
+                                }
+                                else
+                                {
+                                    <div class="accordion" id="subcategoriesAccordion-@catId">
+                                        @foreach (var (subCategory, subIndex) in category.SubCategories.OrderBy(sc => sc.Order).Select((sc, i) => (sc, i)))
+                                        {
+                                            var subId = $"{catId}-sub{subIndex}";
+                                            <div class="accordion-item mb-2">
+                                                <h2 class="accordion-header" id="heading-@subId">
+                                                    <button class="accordion-button bg-secondary text-white collapsed" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapse-@subId"
+                                                            aria-expanded="false" aria-controls="collapse-@subId">
+                                                        <span class="fw-bold">@subCategory.Name <small class="text-white">@subCategory.Code</small></span>
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse-@subId" class="accordion-collapse collapse"
+                                                     aria-labelledby="heading-@subId" data-bs-parent="#subcategoriesAccordion-@catId">
+                                                    <div class="accordion-body">
+                                                        <p>@subCategory.Description</p>
+
+                                                        @if (!subCategory.Requirements.Any())
+                                                        {
+                                                            <div class="alert alert-warning">Geen vereisten voor deze subcategorie.</div>
+                                                        }
+                                                        else
+                                                        {
+                                                            @foreach (var (requirement, reqIndex) in subCategory.Requirements.OrderBy(r => r.Order).Select((r, i) => (r, i)))
+                                                            {
+                                                                <div class="card mb-3">
+                                                                    <div class="card-header @(requirement.IsKeyMeasurement ? "bg-warning" : "bg-light")">
+                                                                        <h5>@requirement.Name</h5>
+                                                                        <span class="badge bg-info">@requirement.Code</span>
+                                                                        @if (requirement.IsKeyMeasurement)
+                                                                        {
+                                                                            <span class="badge bg-warning">Belangrijke maatregel</span>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <p>@requirement.Description</p>
+
+                                                                        <input type="hidden" name="Scores[@scorePostIndex].RequirementId" value="@requirement.Id" />
+
+                                                                        <div class="row g-3">
+                                                                            <div class="col-md-6">
+                                                                            <label class="form-label">Documentatie Maturiteit Score</label>
+                                                                                <select class="form-select" value="@requirement.DocumentationMaturityScore" name="Scores[@scorePostIndex].DocumentationMaturityScore" required>
+                                                                                    @for (var l = 0; l <= 5; l++)
+                                                                                    {
+                                                                                        if (l == requirement.DocumentationMaturityScore)
+                                                                                        {
+                                                                                            <option value="@l" selected>@l</option>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <option value="@l">@l</option>
+                                                                                        }
+                                                                                    }
+                                                                                </select>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label class="form-label">Implementatie Maturiteit Score</label>
+                                                                                <select class="form-select" value="@requirement.ImplementationMaturityScore" name="Scores[@scorePostIndex].ImplementationMaturityScore" required>
+                                                                                    @for (var l = 0; l <= 5; l++)
+                                                                                    {
+                                                                                        if (l == requirement.ImplementationMaturityScore)
+                                                                                        {
+                                                                                            <option value="@l" selected>@l</option>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <option value="@l">@l</option>
+                                                                                        }
+                                                                                    }
+                                                                                </select>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <label class="form-label">Additional Info</label>
+                                                                                <input type="text" name="Scores[@scorePostIndex].AdditionalInfo" class="form-control" value="@requirement.AdditionalInfo" />
+                                                                        </div>
+                                                                        </div>
+
+                                                                        @if (requirement.Guidances.Any())
+                                                                        {
+                                                                            <div class="mt-3">
+                                                                                <h6>Guidance:</h6>
+                                                                                <ul class="list-group">
+                                                                                    @foreach (var guidance in requirement.Guidances.OrderBy(g => g.Order))
+                                                                                    {
+                                                                                        <li class="list-group-item @(guidance.IsTitle ? "active" : "")">
+                                                                                            @guidance.Description
+                                                                                        </li>
+                                                                                    }
+                                                                                </ul>
+                                                                            </div>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <div class="alert alert-light mt-3">Geen richtlijnen beschikbaar voor deze vereiste.</div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                                scorePostIndex++;
+
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-primary">Save Assessment Edit</button>
+                <a asp-action="AssessmentOverview" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    }
+</div>
+
+<style>
+    .card-header h3, .card-header h4, .card-header h5 {
+        margin-bottom: 0.25rem;
+    }
+    .badge {
+        font-size: 85%;
+    }
+    .accordion-button.bg-primary:not(.collapsed),
+    .accordion-button.bg-secondary:not(.collapsed) {
+        color: #ffffff;
+    }
+    .accordion-button.bg-primary:not(.collapsed) {
+        background-color: #003366;
+    }
+    .accordion-button.bg-secondary:not(.collapsed) {
+        background-color: #6c757d;
+    }
+    .accordion-button.bg-primary::after,
+    .accordion-button.bg-secondary::after {
+        filter: brightness(0) invert(1);
+    }
+</style>

@@ -1,0 +1,199 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Wsi.CyFun.Elephants.Web
+build_property.RootNamespace = Wsi.CyFun.Elephants.Web
+build_property.ProjectDir = /Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/AddCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/AddFunction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkRnVuY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/AddGuidance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkR3VpZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/AddRequirement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkUmVxdWlyZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/AddSubcategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRkU3ViY2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/DeleteCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/DeleteGuidance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlR3VpZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/DeleteRequirement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlUmVxdWlyZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/DeleteSubcategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGVsZXRlU3ViY2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Functions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRnVuY3Rpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Guidances.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vR3VpZGFuY2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Requirements.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUmVxdWlyZW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/Subcategories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vU3ViY2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/UpdateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/UpdateFunction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXBkYXRlRnVuY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/UpdateGuidance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXBkYXRlR3VpZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/UpdateRequirement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXBkYXRlUmVxdWlyZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Admin/UpdateSubcategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXBkYXRlU3ViY2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Assessment/AssessmentOverview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXNzZXNzbWVudC9Bc3Nlc3NtZW50T3ZlcnZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Assessment/SaveAssessmentForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXNzZXNzbWVudC9TYXZlQXNzZXNzbWVudEZvclVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Assessment/ShowAssessmentForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXNzZXNzbWVudC9TaG93QXNzZXNzbWVudEZvclVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Assessor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXNzZXNzb3IvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Assessor/ShowAssessment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXNzZXNzb3IvU2hvd0Fzc2Vzc21lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Function/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRnVuY3Rpb24vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9naW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Maturity/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWF0dXJpdHkvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Maturity/ListAssessments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWF0dXJpdHkvTGlzdEFzc2Vzc21lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Survey/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VydmV5L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Survey/SelectMunicipality.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VydmV5L1NlbGVjdE11bmljaXBhbGl0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Survey/ShowFunction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VydmV5L1Nob3dGdW5jdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Survey/ShowSurvey.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VydmV5L1Nob3dTdXJ2ZXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sira/School/Semester 2/Project/CyFunTool/Wsi.CyFun.Elephants.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gwajvyeaj5

@@ -1,0 +1,31 @@
+@model IEnumerable<Wsi.CyFun.Elephants.Core.Entities.Assessment>
+@{
+    ViewData["Title"] = "Ingediende Assessments";
+}
+
+<h2 >VRAGENLIJSTEN</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="small">GEMEENTE</th>
+            <th class="small">GEBRUIKER</th>
+            <th class="small">DATUM</th>
+            <th class="small"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assessment in Model)
+        {
+            <tr>
+                <td>@assessment.Municipality?.Name</td>
+                <td>@assessment.ApplicationUser?.Username</td>
+                <td>@TimeZoneInfo.ConvertTimeFromUtc(assessment.Created, TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time")).ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a asp-action="AssessmentScores" asp-route-id="@assessment.Id" class="btn btn-primary small btn-sm bi bi-eye">
+                        SCORETABEL
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

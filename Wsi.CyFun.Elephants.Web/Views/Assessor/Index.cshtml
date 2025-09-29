@@ -1,0 +1,50 @@
+﻿@model AssessmentListViewModel
+
+@{
+    ViewBag.Title = "Assessments";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h1 class="mb-4">VRAGENLIJSTEN</h1>
+
+    @if (!Model.Assessments.Any())
+    {
+        <div class="alert alert-info">
+            Geen vragenlijsten beschikbaar.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>GEMEENTE</th>
+                    <th>GEBRUIKER</th>
+                    <th>AANGEMAAKT</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var assessment in Model.Assessments)
+                {
+                    <tr>
+                        <td>@assessment.MunicipalityName</td>
+                        <td>@assessment.UserName</td>
+                        <td>@assessment.Created.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <a asp-action="ShowAssessment" asp-route-id="@assessment.Id" class="btn btn-sm btn-primary">
+                                <i class="bi bi-eye"></i> REVIEW
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+
+
+

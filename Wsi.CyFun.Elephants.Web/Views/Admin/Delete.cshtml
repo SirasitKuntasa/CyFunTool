@@ -1,0 +1,14 @@
+﻿@model FunctionViewModel
+@{
+    ViewData["Title"] = "Functie verwijderen";
+}
+
+<h2>FUNCTIE VERWIJDEREN</h2>
+<div class="alert alert-warning">
+    Weet je zeker dat je <strong>@Model.Name</strong> wilt verwijderen?
+</div>
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">VERWIJDEREN</button>
+    <a asp-action="Functions" class="btn btn-secondary">ANNULEREN</a>
+</form>

@@ -1,0 +1,40 @@
+@model GuidanceAddGuidanceViewModel
+
+@{
+    ViewData["Title"] = "AddGuidance";
+}
+
+
+<form method="post"  asp-controller="Admin" asp-action="SaveGuidance">
+
+
+    <div class="mb-3 fw-bold">
+        <label class="form-label">BESCHRIJVING</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">VOLGORDE</label>
+        <input asp-for="Order" class="form-control" type="number" />
+        <span asp-validation-for="Order" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <select asp-for="SelectedRequirementId" asp-items="Model.Requirements">
+            <option value="">-- Selecteer-een-vereiste --</option>
+        </select>
+        <span asp-validation-for="SelectedRequirementId" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <input asp-for="IsTitle" class="form-check-input" type="checkbox" />
+        <label asp-for="IsTitle" class="form-check-label"></label>
+        <span asp-validation-for="IsTitle" class="text-danger"></span>
+    </div>
+
+    <button type="submit" asp-action="SaveGuidance" class="btn btn-success">OPSLAAN</button>
+    <a asp-action="Guidances" class="btn btn-secondary">ANNULEREN</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

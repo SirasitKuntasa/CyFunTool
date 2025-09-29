@@ -1,0 +1,43 @@
+﻿@model SubcategoryAddSubcategoryViewModel
+
+@{
+    ViewData["Title"] = "AddSubcategory";
+}
+
+<form method="post" asp-controller="Admin" asp-action="SaveSubcategory">
+
+    <div class="mb-3 fw-bold">
+        <label class="form-label">NAAM</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">CODE</label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">BESCHRIJVING</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 fw-bold">
+        <label class="form-label">VOLGORDE</label>
+        <input asp-for="Order" class="form-control" type="number" />
+        <span asp-validation-for="Order" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <select asp-for="SelectedCategoryId" asp-items="Model.Categories">
+            <option value="">-- Selecteer-een-categorie --</option>
+        </select>
+        <span asp-validation-for="SelectedCategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" asp-action="SaveSubcategory" class="btn btn-success">OPSLAAN</button>
+    <a asp-action="Subcategories" class="btn btn-secondary">ANNULEREN</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
